@@ -315,10 +315,6 @@ def get_DeepJet_outputs():
 
 
 def customize_BTV_GenTable(process):
-    process.finalGenParticles.select += [
-        "keep (4 <= abs(pdgId) <= 5) && statusFlags().isLastCopy()", # BTV: keep b/c quarks in their last copy
-        "keep (abs(pdgId) == 310 || abs(pdgId) == 3122) && statusFlags().isLastCopy()", # BTV: keep K0s and Lambdas in their last copy
-    ]
     process.genParticleTable.variables = cms.PSet(
         process.genParticleTable.variables,
         vx = Var("vx", "float", doc="x coordinate of vertex position"),
